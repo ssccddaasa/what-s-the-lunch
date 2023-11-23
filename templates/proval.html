@@ -1,0 +1,184 @@
+{% extends "lay.html" %}
+{% block tlt %} SSCCDDAA SA {% endblock %}
+{% block con %}
+<section style="background-color: #80bfff;">
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class=""style="background-color: #99ccff;">
+          <div class="card-body text-center">
+            <img src="{{img}}" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">الطلبات</h5>
+           <ul class="list-group ">
+                {% for y in orddd %}
+                <li class="list-group-item" style="background-color: #66b3ff;">
+                    <p class="text-reset">from: {{y.name}}  want: {{y.title}}</p>
+                </li>
+                {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class=""style="background-color: #99ccff;">
+          <div class="card-body">
+              <form action="" method="POST" enctype="multipart/form-data">
+                   {{form.hidden_tag()}}
+                  <fieldset class="card-body">
+            <div class="row">
+
+             <div class="form-group">
+               {{form.resname.label(class="form-control-label")}}
+               {% if form.resname.errors %}
+               {{form.resname(class="form-control form-control-lg is-invalid")}}
+               <div class="invalid-feedback">
+                 {% for e in form.resname.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               </div>
+               {% else %}
+               {{form.resname(class="form-control form-control-lg")}}
+               {% endif %}
+             </div>
+            </div>
+            <hr>
+            <div class="row">
+
+             <div class="form-group">
+               {{form.maile.label(class="form-control-label")}}
+               {% if form.maile.errors %}
+               {{form.maile(class="form-control form-control-lg is-invalid")}}
+               <div class="invalid-feedback">
+                 {% for e in form.maile.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               </div>
+               {% else %}
+               {{form.maile(class="form-control form-control-lg")}}
+               {% endif %}
+             </div>
+            </div>
+            <hr>
+
+            <div class="row">
+
+             <div class="form-group">
+               {{form.phone.label(class="form-control-label")}}
+               {% if form.phone.errors %}
+               {{form.phone(class="form-control form-control-lg is-invalid")}}
+               <div class="invalid-feedback">
+                 {% for e in form.phone.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               </div>
+               {% else %}
+               {{form.phone(class="form-control form-control-lg")}}
+               {% endif %}
+             </div>
+            </div>
+            <hr>
+            <div class="row">
+
+              <div class="form-group">
+               {{form.location.label(class="form-control-label")}}
+               {% if form.location.errors %}
+               {{form.location(class="form-control form-control-lg is-invalid")}}
+               <div class="invalid-feedback">
+                 {% for e in form.location.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               </div>
+               {% else %}
+               {{form.location(class="form-control form-control-lg")}}
+               {% endif %}
+             </div>
+            </div>
+            <hr>
+            <div class="row">
+
+          <div class="form-group">
+                        {{form.type.label(class="form-control-label")}}
+                        {% if form.type.errors %}
+                        {{form.type(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                          {% for e in form.type.errors %}
+                          <span>{{e}}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                        {{form.type(class="form-select")}}
+                        {% endif %}
+                      </div>
+            </div>
+            <hr>
+            <div class="row">
+
+             <div class="form-group">
+               {{form.des.label(class="form-control-label")}}
+               {% if form.des.errors %}
+               {{form.des(class="form-control form-control-lg is-invalid")}}
+               <div class="invalid-feedback">
+                 {% for e in form.des.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               </div>
+               {% else %}
+               {{form.des(class="form-control form-control-lg")}}
+               {% endif %}
+             </div>
+
+
+            </div>
+                      <hr>
+                          <div class="form-group">
+               {{form.image.label}}
+               {{form.image(class='form-control-file')}}
+               {% if form.image.errors %}
+                class="invalid-feedback">
+                 {% for e in form.image.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               {% endif %}
+             </div>
+                      <hr>
+                      <div class="form-group">
+                    {{form.submit(class="btn btn-outline-info")}}
+                </div>
+            </fieldset>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+  <div class="row text-info">
+ {% for y in meals %}
+            <div class="col-sm-12 col-md-6 col-lg-4 pb-5 d-flex align-items-stretch">
+                <div class="card text-info">
+                    <img src="{{url_for('static', filename=y.image)}}" class="card-img">
+                    <div class="card-body d-flex flex-column text-info">
+                        <h5 class="card-title">
+                            {{y.title}}
+                        </h5>
+                        <p class="card-text mb-0">Type:
+                            {{y.type}}
+                        </p>
+                        <hr>
+                         <p class="card-text mb-0">price:
+                            {{y.price}}
+                        </p>
+                        <p class="card-text mb-0">
+                            <a class="text-decoration-none" href="{{url_for('MEALUP', mealnum=y.meal_number)}}">update</a>
+                        </p>
+                        <p class="card-text mb-0">
+                            <a class="text-decoration-none" href="{{url_for('MEALDEL', mealnum=y.meal_number)}}">delete</a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+  </div>
+
+{% endblock %}

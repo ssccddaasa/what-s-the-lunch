@@ -1,0 +1,60 @@
+{% extends "lay2.html" %}
+{% block tlt %} SSCCDDAA SA {% endblock %}
+{% block con %}
+
+
+
+
+        <div class="text-center" style="background-color:	#ccf5ff;">
+          <div class="card-body text-center">
+            <img src="{{url_for('static', filename=meall.image)}}" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{meall.title}}</h5>
+            <p class="card-text mb-0">
+                            <a class="text-reset" href="{{url_for('PRO2', resID=res.id)}}">{{res.resName}}</a>
+            </p>
+
+            <hr>
+
+            <div class="row">
+              <div class="col">
+                <p class="">{{meall.type}}</p>
+              </div>
+              <div class="col">
+                <p class="">:النوع</p>
+              </div>
+            </div>
+            <hr>
+         <div class="row">
+              <div class="col">
+                <p class="">{{meall.price}}</p>
+              </div>
+              <div class="col">
+                <p class="">:السعر</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <p class="">{{meall.Description}}</p>
+              </div>
+              <div class="col">
+                <p class="">:الوصف</p>
+              </div>
+            </div>
+            <hr>
+            <form action="" method="POST" enctype="multipart/form-data">
+                    {{form.hidden_tag()}}
+                    <fieldset class="form-group">
+                   <div class="form-group">
+                    {{form.submit(class="btn btn-outline-info")}}
+                </div>
+                    </fieldset>
+            </form>
+
+               </div>
+        </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends "lay2.html" %}
+{% block tlt %} SSCCDDAA SA {% endblock %}
+{% block con %}
+<section style="background-color: #80bfff;">
+
+    <div class="row">
+      <div class="col">
+        <div class=" " style="background-color: #99ccff;">
+          <div class="card-body text-center">
+            <img src="{{img}}" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3 mb-1">المفضلة</h5>
+            <ul class="list-group "  >
+                {% for y in cart %}
+                <li class="list-group-item" style="background-color: #66b3ff;">
+                    <a class="text-reset" href="{{url_for('PRO2', resID=y.id)}}">{{y.resName}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card " style="background-color: #99ccff;">
+          <div class="card-body">
+              <form action="" method="POST" enctype="multipart/form-data">
+                   {{form.hidden_tag()}}
+                  <fieldset class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+              </div>
+             <div class="form-group">
+               {{form.name.label(class="form-control-label")}}
+               {% if form.name.errors %}
+               {{form.name(class="form-control form-control-lg is-invalid")}}
+               <div class="invalid-feedback">
+                 {% for e in form.name.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               </div>
+               {% else %}
+               {{form.name(class="form-control form-control-lg")}}
+               {% endif %}
+             </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+              </div>
+             <div class="form-group">
+               {{form.maile.label(class="form-control-label")}}
+               {% if form.maile.errors %}
+               {{form.maile(class="form-control form-control-lg is-invalid")}}
+               <div class="invalid-feedback">
+                 {% for e in form.maile.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               </div>
+               {% else %}
+               {{form.maile(class="form-control form-control-lg")}}
+               {% endif %}
+             </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-3">
+
+              </div>
+             <div class="form-group">
+               {{form.phone.label(class="form-control-label")}}
+               {% if form.phone.errors %}
+               {{form.phone(class="form-control form-control-lg is-invalid")}}
+               <div class="invalid-feedback">
+                 {% for e in form.phone.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               </div>
+               {% else %}
+               {{form.phone(class="form-control form-control-lg")}}
+               {% endif %}
+             </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+
+              </div>
+              <div class="form-group">
+               {{form.location.label(class="form-control-label")}}
+               {% if form.location.errors %}
+               {{form.location(class="form-control form-control-lg is-invalid")}}
+               <div class="invalid-feedback">
+                 {% for e in form.location.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               </div>
+               {% else %}
+               {{form.location(class="form-control form-control-lg")}}
+               {% endif %}
+             </div>
+            </div>
+
+            <hr>
+
+                    <div class="form-group">
+               {{form.image.label}}
+               {{form.image(class='form-control-file')}}
+               {% if form.image.errors %}
+                class="invalid-feedback">
+                 {% for e in form.image.errors %}
+                 <span>{{e}}</span>
+                 {% endfor %}
+               {% endif %}
+             </div>
+                    <hr>
+                      <div class="form-group">
+                    {{form.submit(class="btn btn-outline-info")}}
+                </div>
+            </fieldset>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+  </div>
+
+{% endblock %}

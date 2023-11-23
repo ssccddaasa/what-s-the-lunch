@@ -1,0 +1,87 @@
+{% extends "lay2.html" %}
+{% block tlt %} SSCCDDAA SA {% endblock %}
+{% block con %}
+<section style="background-color:	#ccf5ff;">
+
+
+      <div class="">
+        <div class=" ">
+          <div class="card-body text-center">
+            <img src="{{img}}" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{res.resName}}</h5>
+
+             <p class="card-text mb-0">
+               {% if tru %}
+               <p></p>
+               {% else %}
+               <a class="text-info" href="{{url_for('CART', rnum=res.id)}}">إضافة للمفضلة</a>
+               {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <hr>
+        <div class=" ">
+          <div class="card-body text-right">
+            <div class="row">
+              <div class="col">
+                <p class="mb-0">{{res.resName}}</p>
+              </div>
+              <div class="col">
+                <p class=" mb-0">:اسم المطعم</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <p class="mb-0">{{res.email}}</p>
+              </div>
+              <div class="col">
+                <p class=" mb-0">:الايميل</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <p class="mb-0">{{res.phone}}</p>
+              </div>
+              <div class="col">
+                <p class=" mb-0">:رقم الهاتف</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <p class="mb-0">{{res.location}}</p>
+              </div>
+              <div class="col">
+                <p class=" mb-0">:الموقع</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <p class="mb-0">{{res.type}}</p>
+              </div>
+              <div class="col">
+                <p class=" mb-0">:الاختصاص</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col">
+                <p class="mb-0">{{res.Description}}</p>
+              </div>
+              <div class="col">
+                <p class="">:الوصف</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</section>
+
+{% endblock %}

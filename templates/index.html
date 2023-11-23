@@ -1,0 +1,65 @@
+{% extends "lay.html" %}
+{% block tlt %} SSCCDDAA {% endblock %}
+{% block con %}
+
+<div class="container-md border border-info mt-5 p-1">
+     <h5 class=" text-center mt-1 pt-1 ">
+      <a class="text-decoration-none" href="{{url_for('MEALSHOW', cat='rand')}}">عشوائي</a>
+     </h5>
+ <div class="row justify-content-center mt-1">
+ {% for y in meals %}
+            <div class="col-sm-6 col-md-3 col-lg-2 pb-2 d-flex justify-content-center">
+                <div class="card bg-info text-white">
+                    <img src="{{url_for('static', filename=y.image)}}" class="card-img-top" alt="Cinque Terre" width="250" height="150">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">
+                            {{y.title}}
+                        </h5>
+
+                        <p class="card-text mb-0">النوع:
+                            <a class="text-reset" href="{{url_for('MEALSHOW', cat=y.type)}}">{{y.type}}</a>
+                        </p>
+                         <p class="card-text mb-0">السعر:
+                            {{y.price}}
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+  </div>
+</div>
+
+
+
+
+<div class="container-md border border-success mt-5 p-1">
+     <h5 class=" text-center mt-1 pt-1 ">
+      <a class="text-success text-decoration-none" href="{{url_for('MEALSHOW', cat='cheap')}}">الأرخص</a>
+     </h5>
+ <div class="row justify-content-center mt-1">
+ {% for y in meals2 %}
+            <div class="col-sm-6 col-md-3 col-lg-2 pb-2 d-flex justify-content-center">
+                <div class="card bg-success text-white">
+                    <img src="{{url_for('static', filename=y.image)}}" class="card-img-top" alt="Cinque Terre" width="250" height="150">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">
+                            {{y.title}}
+                        </h5>
+
+                        <p class="card-text mb-0">النوع:
+                            <a class="text-reset" href="{{url_for('MEALSHOW', cat=y.type)}}">{{y.type}}</a>
+                        </p>
+                         <p class="card-text mb-0">السعر:
+                            {{y.price}}
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+  </div>
+</div>
+{% endblock %}
