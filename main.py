@@ -12,7 +12,7 @@ from flask_login import LoginManager, UserMixin, login_user,login_manager, curre
 
 a = Flask(__name__)
 a.config["SECRET_KEY"] = 'e9a918c7419bc27ee98a4f04f4b8a32daa6a26a3dd4fb707d1514808861a10df'
-a.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:13542687Qwe@localhost/lunch"
+a.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:password@localhost/lunch"
 a.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(a)
 bcr = Bcrypt(a)
